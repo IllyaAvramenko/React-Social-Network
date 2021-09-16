@@ -1,0 +1,30 @@
+import { connect } from 'react-redux';
+import {updateNewMessageBody, sendMessage} from '../../redux/dialogsReducer';
+import Dialogs from './Dialogs';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
+
+const mapStateToProps = (state) => {
+    return {
+        dialogsPage: state.dialogsPage,
+        isAuth: state.auth.isAuth
+    }
+};
+
+
+
+const AuthRedirectComponent = withAuthRedirect(Dialogs);
+
+const DialogsContainer = connect(mapStateToProps, 
+    { updateNewMessageBody, sendMessage })(AuthRedirectComponent);
+
+export default DialogsContainer;
+
+
+// DialogsContainer - контейнерна компонента, яка повертає Презентаційну компоненту та передає у неї інформацію про store через props
+// Тому, що Презентаційна компонента не "Знає" про store, а тільки має приймати інформацію, яка приходить до неї через props
+
+// У mapStateToProps приходить State
+// У mapDispatchToProps приходить Dispatch
+
+// В props Dialogs попадуть обєкти, які повертають два callback (mapStateToProps та mapDispatchToProps)
+// Тобто в Dialogs props будуть props.dialogsPage / props.mapStateToProps / props.mapDispatchToProps

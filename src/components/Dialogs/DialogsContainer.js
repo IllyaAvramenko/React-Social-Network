@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import {updateNewMessageBody, sendMessage} from '../../redux/dialogsReducer';
 import Dialogs from './Dialogs';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
     return {
@@ -10,14 +11,18 @@ const mapStateToProps = (state) => {
     }
 };
 
-
-
-const AuthRedirectComponent = withAuthRedirect(Dialogs);
-
-const DialogsContainer = connect(mapStateToProps, 
-    { updateNewMessageBody, sendMessage })(AuthRedirectComponent);
+const DialogsContainer = compose(
+    connect(mapStateToProps, { updateNewMessageBody, sendMessage }),
+    withAuthRedirect
+)(Dialogs);
 
 export default DialogsContainer;
+
+
+// const AuthRedirectComponent = withAuthRedirect(Dialogs);
+
+// const DialogsContainer = connect(mapStateToProps, 
+//     { updateNewMessageBody, sendMessage })(AuthRedirectComponent);
 
 
 // DialogsContainer - контейнерна компонента, яка повертає Презентаційну компоненту та передає у неї інформацію про store через props

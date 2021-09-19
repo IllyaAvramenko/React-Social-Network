@@ -26,7 +26,6 @@ class App extends Component {
     render() {
         
         if (!this.props.initialized) {
-            console.log('Preload');
             return <Preloader/>
         }
 

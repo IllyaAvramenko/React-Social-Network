@@ -12,6 +12,12 @@ const Users = (props) => {
         pages.push(i);
     }
     
+    const isDisabled = (userId) => {
+        props.followingInProgress.some(id => id === userId);
+
+        return props.followingInProgress.some(id => id !== userId);
+    };
+
     return ( <div>
         <div>
         {
@@ -32,10 +38,10 @@ const Users = (props) => {
                 </div>
                 <div>
                     { user.followed
-                        ? <button disabled={props.followingInProgress.some(id => id === user.id)}
+                        ? <button disabled={ isDisabled(user.id) }
                                   onClick={ () => { props.unFollow(user.id) } } 
                                   >UnFollow</button>
-                        : <button disabled={props.followingInProgress.some(id => id === user.id)}
+                        : <button disabled={ isDisabled(user.id) }
                                   onClick={ () => { props.follow(user.id) } } 
                                   >Follow</button>
                     }

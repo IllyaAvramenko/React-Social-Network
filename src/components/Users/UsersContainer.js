@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getUsers, follow, unFollow } from '../../redux/usersReducer';
+import { requestUsers, follow, unFollow } from '../../redux/usersReducer';
 import Users from './Users';
-import Preloader from '../../common/Preloader/Preloader';
-import withAuthRedirect from '../../hoc/withAuthRedirect';
+import Preloader from '../common/Preloader/Preloader';
+// import withAuthRedirect from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsers } from '../../redux/usersSelectors';
 
 
 class UsersContainer extends Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        this.props.requestUsers(pageNumber, this.props.pageSize);
     }    
 
     render() {
@@ -33,25 +34,25 @@ class UsersContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    
-    const {users, pageSize, totalUsersCount, currentPage, isFetching, followingInProgress} = state.usersPage;
 
     return {
-       users,
-       pageSize,
-       totalUsersCount,
-       currentPage,
-       isFetching,
-       followingInProgress,
+       users: getUsers(state),
+       pageSize: getPageSize(state),
+       totalUsersCount: getTotalUsersCount(state),
+       currentPage: getCurrentPage(state),
+       isFetching: getIsFetching(state),
+       followingInProgress: getFollowingInProgress(state),
        isAuth: state.auth.isAuth
     }
 };
 
 export default compose(
-    connect(mapStateToProps, { getUsers, follow, unFollow }),
-    withAuthRedirect
+    connect(mapStateToProps, { requestUsers, follow, unFollow })
 )
 (UsersContainer); 
+
+
+
 
 
 // const withRedirect = withAuthRedirect(UsersContainer);
@@ -61,6 +62,20 @@ export default compose(
 //     )(withRedirect);
 
 
+// const mapStateToProps = (state) => {
+    
+//     const {users, pageSize, totalUsersCount, currentPage, isFetching, followingInProgress} = state.usersPage;
+
+//     return {
+//        users,
+//        pageSize,
+//        totalUsersCount,
+//        currentPage,
+//        isFetching,
+//        followingInProgress,
+//        isAuth: state.auth.isAuth
+//     }
+// };
 
 //  const mapDispatchToProps = (dispatch) => {
 //     return {

@@ -1,3 +1,43 @@
+.paginator {
+   display: flex;
+   align-items: center;
+}
+
+
 .selectedPage {
-   font-weight: bold;
+   cursor: pointer;
+   padding: 5px 8px;
+   margin: 5px;
+   background: lightblue;
+   border-radius: 2px;
+   box-shadow: 0px 0px 0px 1px rgba(135, 206, 235, 0.5);
+   background: rgba(135, 206, 235, 0.7);
+   transition: all 0.1s ease-in-out;
+}
+.page {
+   cursor: pointer;
+   box-shadow: 0px 0px 0px 1px rgba(135, 206, 235, 0.39);
+   padding: 5px 8px;
+   margin: 5px;
+   background: lightblue;
+   border-radius: 2px;
+   background: rgba(0, 20, 51, 0.07);
+   transition: all 0.1s ease-in-out;
+
+   &:hover {
+      background-color: rgba(0, 20, 51, 0.2);
+   }
+}
+
+.btn {
+   margin: 5px;
+   border: none;
+   padding: 9px 20px;
+   border-radius: 2px;
+   cursor: pointer;
+   transition: all 0.1s ease-in-out;
+
+   &:hover {
+      background-color: rgba(0, 20, 51, 0.2);
+   }
 }

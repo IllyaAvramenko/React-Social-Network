@@ -1,0 +1,16 @@
+.appContainer {
+  display: flex;
+
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 1200px
+}
+
+.appContent {
+  width: 80%;
+  margin: 5px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 20, 51, 0.1);
+  overflow: hidden;
+}

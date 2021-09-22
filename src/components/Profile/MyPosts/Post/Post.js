@@ -4,12 +4,25 @@ import s from './Post.module.scss';
 const Post = (props) => {
    const {message, likeCount} = props;
    return (
-      <div className={s.item}>
-         <img src="https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg" alt="photop" />
-         {message}
-         <div>
-            <span>Likes: {likeCount}</span>
+      <div className={s.post}>
+
+         <div className={s.postInfo}>
+            <div className={s.avatar}>
+               <img src="https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg" alt="photop" />
+            </div>
+            <div className={s.postName}>
+            </div>
          </div>
+
+         <div className={s.postContent}>
+            <div className={s.postContentMessage}>
+               <p>{message}</p>
+            </div>
+            <div>
+               <span>Likes: {likeCount}</span>
+            </div>
+         </div>
+
       </div>
    )
 }

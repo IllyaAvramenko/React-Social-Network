@@ -1,0 +1,11 @@
+.profileStatus {
+   padding: 5px;
+   cursor: pointer;
+   &:hover {
+      background-color: rgba(0, 20, 51, 0.07);
+    }
+
+    &Input {
+       padding: 5px;
+    }
+}

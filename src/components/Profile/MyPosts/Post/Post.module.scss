@@ -1,5 +1,39 @@
-.item {
-   color: greenyellow;
+.post {
+   display: flex;
+   align-items: center;
+   justify-content: start;
+   padding: 10px;
+   margin: 10px 0px;
+   background: rgba(0, 20, 51, 0.07);
+   border-radius: 4px;
+
+   &Info {
+      display: flex;
+
+      .avatar {
+         display: flex;
+         align-items: center;
+         margin-right: 10px;
+      }
+   }
+
+   &Name {
+      h5 {
+         margin-block-start: 0em;
+         margin-block-end: 0.2em
+      }
+   }
+
+   &Content {
+      margin-left: 25px;
+      
+      &Message {
+         p {
+            color: rgb(9, 19, 42);
+         }
+      }
+   }
+
    img {
       width: 50px;
       border-radius: 50%;

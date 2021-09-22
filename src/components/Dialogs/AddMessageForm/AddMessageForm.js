@@ -1,4 +1,5 @@
 import React from 'react';
+import s from '../Dialogs.module.scss';
 import { Field, reduxForm } from 'redux-form';
 import { Textarea } from '../../common/FormsControls/FormsControls';
 import { required, maxLengthCreator } from '../../../utils/validators/validators';
@@ -15,7 +16,7 @@ const AddMessageForm = (props) => {
                 placeholder='Enter your message'/>
             </div>
             <div> 
-                <button>Send</button> 
+                <button className={s.btn}>Send</button> 
             </div>
         </form>
     )

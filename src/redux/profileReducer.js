@@ -9,10 +9,10 @@ const ADD_POST = 'ADD-POST',
 
 let initialState = {
    posts: [
-      {id: 1, message: 'Hi, it is my first post', likeCount: 15},
-      {id: 2, message: 'Hello', likeCount: 12},
-      {id: 3, message: 'Blalala', likeCount: 42},
-      {id: 4, message: 'Dada', likeCount: 182}
+      {id: 1, name: 'Alfred', message: 'Hi, it is my first post', likeCount: 15},
+      {id: 2, name: 'Zigmund', message: 'Hello', likeCount: 12},
+      {id: 3, name: 'Leibnits', message: 'Blalala', likeCount: 42},
+      {id: 4, name: 'Steven', message: 'Dada', likeCount: 182}
    ],
    profile: null,
    status: ''

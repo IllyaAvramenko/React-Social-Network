@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import s from './ProfileStatus.module.scss';
+import s from './ProfileStatus.module.scss';
 
 export default class ProfileStatus extends Component {
    state = {
@@ -38,8 +38,8 @@ export default class ProfileStatus extends Component {
       return (
          <>
             {!this.state.editMode &&
-               <div>   
-                  <span onDoubleClick={ this.activateEditMode } >{this.props.status || '-----'}</span>
+               <div className={s.profileStatus}>   
+                  <span  onDoubleClick={ this.activateEditMode } >{this.props.status || '-----'}</span>
                </div>
             }
             {this.state.editMode &&

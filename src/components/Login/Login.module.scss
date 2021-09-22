@@ -3,3 +3,67 @@
    padding: 5px;
    color: red;
 }
+
+.btn {
+   color: white;
+   padding: 7px 16px 8px;
+   margin: 0;
+   cursor: pointer;
+   text-align: center;
+   background: 0 0;
+   background-color: rgba(76, 117, 163, 1);
+   border: 0;
+   border-radius: 4px;
+   transition: all 0.1s ease-in-out;
+ 
+   &:hover {
+      background-color: lighten(rgba(76, 117, 163, 1), 8%);
+   }
+ 
+   &:active {
+      background-color: darken(rgba(76, 117, 163, 1), 8%);
+      transform: scale(0.99);
+   }
+}
+
+.loginPage {
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   .loginTitle {
+      display: flex;
+      justify-content: start;
+      width: 100%;
+
+      h1 {
+         margin-block-start: 0.1em;
+      }
+   }
+
+   .loginForm {
+      
+      .checkbox {
+         display: flex;
+
+         p {
+            margin: 0;
+            padding: 0;
+            margin-left: 5px;
+         }
+      }
+
+      input {
+         border: 1px solid rgba(0, 20, 51, 0.1);
+         border-radius: 3px;
+         padding: 6px 12px 8px;
+         outline: none;
+         margin-bottom: 15px;
+      }
+
+      p {
+         color:black;
+      }
+   }
+}

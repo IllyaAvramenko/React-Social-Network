@@ -6,12 +6,14 @@ const Header = (props) => {
 
    return (
       <header className={s.header}>
-         <p>header</p>
+         <div className={s.headerContainer}>
+            <h2>Own Social Network</h2>
 
-         <div className={s.loginBlock}>
-            { props.isAuth 
-               ? <div> {props.login} - <button onClick={props.logout} >Log out</button></div>
-               : <NavLink to={'/login'} >Login</NavLink>}
+            <div className={s.loginBlock}>
+               { props.isAuth 
+                  ? <div> {props.login} - <button className={s.btn} onClick={props.logout} >Log out</button></div>
+                  : <NavLink className={s.btn} to={'/login'} >Login</NavLink>}
+            </div>
          </div>
       </header>
    )  

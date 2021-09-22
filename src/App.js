@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from 'react';
-import './App.scss';
+import s from './App.module.scss';
 import { connect } from 'react-redux';
 import {Route} from "react-router-dom";
 import { withRouter } from 'react-router';
@@ -33,20 +33,22 @@ class App extends Component {
         }
 
         return (
-            <div className="app-wrapper">
+            <>
                 <HeaderContainer/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Suspense fallback={<Preloader/>}>
-                        <Route path='/dialogs' render={() => <DialogsContainer />}/>
-                        <Route path='/profile/:userId?' render={() => <ProfileContainer /> } />
-                        <Route path='/users' render={() => <UsersContainer />}/>
-                        <Route path='/login' render={() => <Login />}/>
-                        <Route path='/music' component={Music}/>
-                        <Route path='/settings' component={Settings}/>
-                    </Suspense>
+                <div className={s.appContainer}>
+                    <Navbar/>
+                    <div className={s.appContent}>
+                        <Suspense fallback={<Preloader/>}>
+                            <Route path='/dialogs' render={() => <DialogsContainer />}/>
+                            <Route path='/profile/:userId?' render={() => <ProfileContainer /> } />
+                            <Route path='/users' render={() => <UsersContainer />}/>
+                            <Route path='/login' render={() => <Login />}/>
+                            <Route path='/music' component={Music}/>
+                            <Route path='/settings' component={Settings}/>
+                        </Suspense>
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 }
